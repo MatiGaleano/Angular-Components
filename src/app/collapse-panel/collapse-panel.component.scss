@@ -1,0 +1,36 @@
+.panel{
+    border: 1px solid var(--light-color);
+    background: #f9f9f9;
+    color: var(--dark-color);
+    border-radius: 6px;
+    margin: 20px;
+
+    &-header {
+        border: 1px solid var(--light-color);
+        background: #f9f9f9;
+        color: var(--dark-color);
+        font-weight: 700;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+
+        &-container{
+            display: flex;
+            align-items: center;
+            padding: 1.25rem;            
+        }
+        &-icon{
+            margin-right: 0.5rem;
+        }
+        &-text{
+            line-height: 1;
+        }
+    }
+    &-content{
+        background: #f9f9f9;
+        padding: 1.25rem;
+    }
+    &-body{}
+}
+.app-collapse-header{}
+.app-collapse-content{}

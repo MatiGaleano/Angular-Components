@@ -1,0 +1,22 @@
+<fieldset class="panel">
+    <legend class="panel-header" (click)="toggle($event)">
+        <div class="panel-header-container">
+            <i 
+            [ngClass]="{'fa-minus': collapsed, 'fa-plus': !collapsed}"
+            class="fa-solid panel-header-icon"
+            ></i>
+            <span *ngIf="headerText" class="panel-header-text">{{headerText}}</span>
+            <ng-content select="app-collapse-header"></ng-content>
+        </div>
+    </legend>
+    <div 
+        class="panel-content" 
+        [@collapsePanelContent]="
+        collapsed ? {value: 'hidden', params: {transitionParams: transitionOptions, height: '0'}}
+        : {value: 'visible', params: {transitionParams: animating ? transitionOptions: '0ms', height: '*'}}"
+        [@collapsePanelContent.done]="onToggleDone()">
+        <div class="panel-body">
+            <ng-content select="app-collapse-content"></ng-content>
+        </div>
+    </div>
+</fieldset>

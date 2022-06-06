@@ -3,7 +3,6 @@ import {
     transition,
     style,
     query,
-    group,
     animate,
 } from '@angular/animations';
 
