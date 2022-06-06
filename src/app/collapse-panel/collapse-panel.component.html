@@ -10,11 +10,11 @@
         </div>
     </legend>
     <div 
-        class="panel-content" 
+        class="panel-toggleable-content" 
         [@collapsePanelContent]="
         collapsed ? {value: 'hidden', params: {transitionParams: transitionOptions, height: '0'}}
         : {value: 'visible', params: {transitionParams: animating ? transitionOptions: '0ms', height: '*'}}"
-        [@collapsePanelContent.done]="onToggleDone()">
+        (@collapsePanelContent.done)="onToggleDone()">
         <div class="panel-body">
             <ng-content select="app-collapse-content"></ng-content>
         </div>

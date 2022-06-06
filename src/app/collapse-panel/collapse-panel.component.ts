@@ -1,11 +1,33 @@
 import { Component, Input } from '@angular/core';
-import { CollapsePanelAnimation } from '../animations/collapsePanel-animation';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-collapse-panel',
   templateUrl: './collapse-panel.component.html',
   styleUrls: ['./collapse-panel.component.scss'],
-  animations: [ CollapsePanelAnimation ]
+  animations: [
+    trigger('collapsePanelContent', [
+      state(
+          'hidden',
+          style({
+              height: '0',
+              padding: '0',
+              overflow: 'hidden',
+          })
+      ),
+      state(
+          'visible',
+          style({
+              height: '*',
+          })
+      ),
+      transition('hidden <=> visible', [
+          style({ overflow: 'hidden' }),
+          animate('{{transitionParams}}'),
+      ]),
+      transition('void => *',animate(0)),
+  ])
+  ]
 })
 export class CollapsePanelComponent {
 
